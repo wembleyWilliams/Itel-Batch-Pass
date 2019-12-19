@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itel Batch Pass", "itel Batch Pass.csproj", "{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {024BF3B1-3E82-4562-8748-7FD0F3F1ECE8}
+	EndGlobalSection
+EndGlobal
