@@ -24,5 +24,32 @@ namespace itel_Batch_Pass
         {
             InitializeComponent();
         }
+
+        private void Full_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            name_label.Content = Full.Text;
+        }
+
+        private void position_TextChanged(object sender, TextChangedEventArgs e)
+        {
+             pos_label.Content = position.Text;
+        }
+
+
+
+        private void type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void department_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            department_label.Content = department.Text;
+        }
+
+        private void hrm_id_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            hrm_label.Content = hrm_id.Text;
+        }
     }
 }
