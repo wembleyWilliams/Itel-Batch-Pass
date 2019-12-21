@@ -15,7 +15,6 @@
 
         <Grid Grid.Column="0"></Grid> <!--Padding Left-->
         
-        
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -30,54 +29,60 @@
 
                 <!--Fullname-->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
 
                 <RowDefinition Height="10"/>
                 <!--Padding-->
 
                 <!--Position-->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
 
                 <RowDefinition Height="20"/>
                 <!--Padding-->
 
                 <!--Employee Type-->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
 
                 <RowDefinition Height="20"/>
                 <!--Padding-->
 
                 <!--Department-->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
 
                 <RowDefinition Height="20"/>
                 <!--Padding-->
        
                 <!--Issue Date-->
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="30"/>
 
                 <RowDefinition Height="20"/>
                 <!--Padding-->
 
                 <!--HRM ID-->
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+
+                <RowDefinition Height="30"/>
+                <!--Padding-->
+
+                <!--Image Selector-->
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="40"/>
 
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
                 <!--Padding-->
 
                 <!--Button-->
                 <RowDefinition Height="40"/>
                 
-
             </Grid.RowDefinitions>
 
             <!--Logo-->
-            <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="26">ItelBPO ID</Label>
+            <Label Grid.Row="0" Grid.Column="0" FontFamily="times new roman" FontWeight="Bold" FontSize="26">ItelBPO ID</Label>
             
             <!--Fullname-->
             <Label Grid.Row="2" Grid.Column="0">Fullname:</Label>
@@ -86,44 +91,51 @@
             <!--Position-->
             <Label Grid.Row="5" Grid.Column="0">Position:</Label>
             <TextBox x:Name="position" Grid.Row="6" TextChanged="position_TextChanged"></TextBox>
-            
+
+            <!--Department-->
+            <Label Grid.Row="8" Grid.Column="0">Department:</Label>
+            <TextBox x:Name="department" Grid.Row="9" TextChanged="department_TextChanged"></TextBox>
+
             <!--Employee Type-->
             <Label Grid.Row="11" Grid.Column="0">Employee Type:</Label>
             <ComboBox x:Name="type" Grid.Row="12" SelectionChanged="type_SelectionChanged">
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_blue.png"/>
-                        <TextBlock Foreground="Black" Padding="5,5" TextAlignment="Center">Admin</TextBlock>
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Foreground="Black" Padding="5,5" TextAlignment="Center">Admin</TextBlock>
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_yellow.png"/>
-                        <TextBlock Foreground="Blue" Padding="5,5" TextAlignment="Center">Support</TextBlock>
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Foreground="Black" Padding="5,5" TextAlignment="Center">Support</TextBlock>
                     </StackPanel>
                 </ComboBoxItem>
                 <ComboBoxItem>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="http://cdn1.iconfinder.com/data/icons/fatcow/16/bullet_green.png"/>
-                        <TextBlock Foreground="Blue" Padding="5,5" TextAlignment="Center">Agent</TextBlock>
+                        <TextBlock FontSize="14" FontWeight="SemiBold" Foreground="Black" Padding="5,5" TextAlignment="Center">Agent</TextBlock>
                     </StackPanel>
                 </ComboBoxItem>
             </ComboBox>
 
-            <!--Department-->
-            <Label Grid.Row="8" Grid.Column="0">Department:</Label>
-            <TextBox x:Name="department" Grid.Row="9" TextChanged="department_TextChanged"></TextBox>
 
             <!--Issue Date-->
             <Label Grid.Row="14" Grid.Column="0">Issue Date:</Label>
-            <DatePicker x:Name="i_date" Grid.Row="15"></DatePicker>
+            <DatePicker x:Name="i_date" Focusable="False" Grid.Row="15" DataContextChanged="i_date_DataContextChanged"></DatePicker>
 
             <!--HRM ID-->
             <Label Grid.Row="17" Grid.Column="0">HRM ID:</Label>
             <TextBox x:Name="hrm_id" Grid.Row="18" TextChanged="hrm_id_TextChanged"></TextBox>
 
+            <!--Image Picker Button-->
+            <Button x:Name="image" Grid.Row="20" Grid.Column="1" Width="80" 
+                    Click="image_Click" 
+                    HorizontalAlignment="Left" Content="Upload Image"></Button>
+            <TextBox Grid.Column="0" IsEnabled="False" x:Name="file" Grid.Row="20"></TextBox>
+
             <!--Button-->
-            <Button Grid.Column="1" Content="Print" Grid.Row="20"
+            <Button Grid.Column="1" Content="Print" Grid.Row="22"
                     Background="PowderBlue"
                     />
         </Grid>
@@ -144,22 +156,78 @@
                 <!--Information Preview-->
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="100"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="160"/>
-                        <RowDefinition Height="65"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <!--Affects HRM ID-->
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="25"/>
+                        
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="name_label" Grid.Row="1" Grid.Column="1" Content="First name last name" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center"/>
-                    <Label x:Name="pos_label" Grid.Row="2" Grid.Column="1" Content="Position Title" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center"/>
-                    <Label x:Name="department_label" Grid.Row="3" Grid.Column="1" Content="IT Department" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center"/>
-                    <Label x:Name="hrm_label" Grid.Row="4" Grid.Column="3" Content="218721" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center"/>
-                   <!-- <Label x:Name="date_label" Grid.Row="5" Grid.Column="3" Content="29/01/2019"-->
+                    
+                    <!--Text Labels-->
+                    <Label x:Name="name_label" Padding="2" FontSize="24" Grid.Row="18" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="11" Content="Firstname lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="pos_label" Grid.Row="19" Grid.Column="7" Grid.RowSpan="3"  Grid.ColumnSpan="9" Content="Position Title" FontSize="24" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="department_label" Grid.Row="20" Grid.RowSpan="2" Grid.ColumnSpan="9" Grid.Column="7" Content="Department" FontSize="22" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>                    
+                    <Label x:Name="type_label" Grid.Row="22" Grid.Column="9" Grid.RowSpan="2" Grid.ColumnSpan="5" FontSize="20" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Content="Type"/>
+                    
+                    <!--Number Labels-->
+                    <Label x:Name="date_label" Grid.Row="24" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="01/29/1998" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="date_label_Initialized"/>
+                    <Label x:Name="exdate_label" Grid.Row="25" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="01/29/1998" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="exdate_label_Initialized"/>
+                    <Label x:Name="hrm_label" Grid.Row="28" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="3" Content="218721" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                 </Grid>
             </Grid>
             
