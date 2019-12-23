@@ -5,6 +5,14 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itel Batch Pass", "itel Batch Pass.csproj", "{2C5FE72A-225C-4B96-93D2-B7F55268A5E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{319981E3-8C1D-4AA0-913A-8A4FBF92AE76}"
+	ProjectSection(SolutionItems) = preProject
+		head_icon.png = head_icon.png
+		Template_RAW_1.png = Template_RAW_1.png
+		Template_RAW_2.png = Template_RAW_2.png
+		Template_RAW_3.png = Template_RAW_3.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

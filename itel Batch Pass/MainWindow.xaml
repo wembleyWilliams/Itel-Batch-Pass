@@ -219,8 +219,9 @@
                         <ColumnDefinition Width="20"/>
                         <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
-                    
-                    
+                                      
+                    <!--Image Label-->
+                    <Image x:Name="user_image" Stretch="Fill" Grid.Row="6" Grid.Column="5" Grid.RowSpan="12" Grid.ColumnSpan="12"  Height="230" Width="230" HorizontalAlignment="Center" VerticalAlignment="Center" Source="head_icon.PNG"></Image>
                     
                     <!--Text Labels-->
                     <Label x:Name="name_label" Padding="2" FontSize="24" Grid.Row="18" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="20" Content="Firstname Lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>

@@ -94,10 +94,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Template_RAW_1.png" />
-    <Resource Include="Template_RAW_2.png" />
-    <Resource Include="Template_RAW_3.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
