@@ -122,7 +122,8 @@
 
             <!--Issue Date-->
             <Label Grid.Row="14" Grid.Column="0">Issue Date:</Label>
-            <DatePicker x:Name="i_date" Focusable="False" Grid.Row="15" DataContextChanged="i_date_DataContextChanged"></DatePicker>
+            <DatePicker x:Name="i_date" Focusable="False" Grid.Row="15" DataContextChanged="i_date_DataContextChanged" 
+                        SelectedDateChanged="i_date_SelectedDateChanged"></DatePicker>
 
             <!--HRM ID-->
             <Label Grid.Row="17" Grid.Column="0">HRM ID:</Label>
@@ -132,6 +133,7 @@
             <Button x:Name="image" Grid.Row="20" Grid.Column="1" Width="80" 
                     Click="image_Click" 
                     HorizontalAlignment="Left" Content="Upload Image"></Button>
+            
             <TextBox Grid.Column="0" IsEnabled="False" x:Name="file" Grid.Row="20"></TextBox>
 
             <!--Button-->
@@ -151,7 +153,7 @@
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Grid.RowSpan="2" Source="Template_RAW.png"/> 
+                <Image x:Name="ID" Grid.RowSpan="2" Source="Template_RAW_1.png"/> 
                 
                 <!--Information Preview-->
                 <Grid Grid.Row="1">
@@ -218,14 +220,16 @@
                         <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
                     
+                    
+                    
                     <!--Text Labels-->
-                    <Label x:Name="name_label" Padding="2" FontSize="24" Grid.Row="18" Grid.Column="6" Grid.RowSpan="2" Grid.ColumnSpan="11" Content="Firstname lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Label x:Name="pos_label" Grid.Row="19" Grid.Column="7" Grid.RowSpan="3"  Grid.ColumnSpan="9" Content="Position Title" FontSize="24" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Label x:Name="department_label" Grid.Row="20" Grid.RowSpan="2" Grid.ColumnSpan="9" Grid.Column="7" Content="Department" FontSize="22" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>                    
+                    <Label x:Name="name_label" Padding="2" FontSize="24" Grid.Row="18" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="20" Content="Firstname Lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="pos_label" Grid.Row="19" Grid.Column="1" Grid.RowSpan="3"  Grid.ColumnSpan="20" Content="Position Title" FontSize="24" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="department_label" Grid.Row="20" Grid.RowSpan="2" Grid.ColumnSpan="20" Grid.Column="1" Content="Department" FontSize="22" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>                    
                     <Label x:Name="type_label" Grid.Row="22" Grid.Column="9" Grid.RowSpan="2" Grid.ColumnSpan="5" FontSize="20" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Content="Type"/>
                     
                     <!--Number Labels-->
-                    <Label x:Name="date_label" Grid.Row="24" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="01/29/1998" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="date_label_Initialized"/>
+                    <Label x:Name="date_label" Grid.Row="24" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="date_label_Initialized" />
                     <Label x:Name="exdate_label" Grid.Row="25" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="01/29/1998" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="exdate_label_Initialized"/>
                     <Label x:Name="hrm_label" Grid.Row="28" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="3" Content="218721" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                 </Grid>

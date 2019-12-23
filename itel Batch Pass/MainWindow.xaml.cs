@@ -51,20 +51,27 @@ namespace itel_Batch_Pass
 
         private void type_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string src;
             if (type.SelectedIndex > -1)
             {                
                 switch(type.SelectedIndex)
                 {
                     case 0:
                         type_label.Content = "Admin";
+                        ID.Source  = new BitmapImage(new Uri("Template_RAW_2.png", UriKind.Relative));
+                       
                         break;
 
                     case 1:
                         type_label.Content = "Support";
+                        ID.Source = new BitmapImage(new Uri("Template_RAW_3.png", UriKind.Relative));       
+                       
                         break;
 
                     case 2:
                         type_label.Content = "Agent";
+                        BitmapImage bitmap2 = new BitmapImage(new Uri("Template_RAW_1.png", UriKind.Relative));                      
+                        ID.Source = bitmap2;
                         break;
                 }
             }
@@ -72,7 +79,7 @@ namespace itel_Batch_Pass
 
         private void department_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (position.Text != "")
+            if (department.Text != "")
                 department_label.Content = department.Text;
             else
                 department_label.Content = "Department";
@@ -89,10 +96,15 @@ namespace itel_Batch_Pass
         private void i_date_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (i_date.SelectedDate != null)
-                date_label.Content = i_date.SelectedDate;
+            {
+                date_label.Content = i_date.SelectedDate.ToString();
+                //DateTime theDate = DateTime.Now;
+                DateTime exp = i_date.SelectedDate.Value;
+                exp.AddYears(2);
+                exdate_label.Content = exp.ToString("MM/dd/yyyy");
+            }
             else
                 date_label.Content = getDate();
-
         }
 
         private void image_Click(object sender, RoutedEventArgs e)
@@ -103,6 +115,10 @@ namespace itel_Batch_Pass
 
             //Launch dialog by calling ShowDialog method.
             Nullable<bool> result = openFileDlg.ShowDialog();
+            openFileDlg.InitialDirectory = "C:\\";
+            openFileDlg.Filter = "Image Files (*.jpg)|*.jpg| All Files (*.*)|*.*";
+            openFileDlg.RestoreDirectory = true;
+
             //Get the filename and display in a textBox
             //Load content of file in a TextBlock
             if (result == true)
@@ -113,10 +129,11 @@ namespace itel_Batch_Pass
                 
         }
 
-       
         private void date_label_Initialized(object sender, EventArgs e)
         {
+            
             date_label.Content = DateTime.Now.ToString("MM/dd/yyyy");
+            
         }
 
         private void exdate_label_Initialized(object sender, EventArgs e)
@@ -124,6 +141,20 @@ namespace itel_Batch_Pass
             DateTime theDate = DateTime.Now;
             DateTime exp = theDate.AddYears(2);
             exdate_label.Content = exp.ToString("MM/dd/yyyy");
+        }
+
+        private void i_date_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (i_date.SelectedDate != null)
+            {
+                DateTime i_d = i_date.SelectedDate.Value;
+                date_label.Content = i_d.ToString("MM/dd/yyyy");
+                
+                DateTime exp = i_date.SelectedDate.Value;            
+                exdate_label.Content = exp.AddYears(2).ToString("MM/dd/yyyy");
+            }
+            else
+                date_label.Content = getDate();
         }
     }
 }
