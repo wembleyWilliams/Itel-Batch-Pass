@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace itel_Batch_Pass
 {
@@ -154,6 +155,41 @@ namespace itel_Batch_Pass
             {
                 date_label.Content = getDate();
             }
+        }
+
+        private void print_button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Are you sure ?","",MessageBoxButton.YesNo, MessageBoxImage.Question);
+            switch(result)
+            {
+                case MessageBoxResult.Yes:
+                    RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(630, 990, 96, 96, PixelFormats.Pbgra32);
+                    renderTargetBitmap.Render(ID_card);
+                    PngBitmapEncoder pngImage = new PngBitmapEncoder();
+                    pngImage.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+
+                    if(Full.Text != null)
+                    {
+                        String filename = Full.Text;
+                       
+                        using (FileStream fileStream = File.Create(filename + ".png"))
+                        {
+                            pngImage.Save(fileStream);
+                        }
+                        MessageBox.Show("ID Saved as " + filename, "Saved", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    } else
+                    {
+                        MessageBox.Show("Please enter the employee's name","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                   
+                    break;
+
+                case MessageBoxResult.No:
+                    MessageBox.Show("Operation canceled","", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    break;
+            }
+            
         }
     }
 }
