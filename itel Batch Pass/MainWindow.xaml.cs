@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace itel_Batch_Pass
 {
@@ -33,19 +34,33 @@ namespace itel_Batch_Pass
 
         private void Full_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Full.Text != "")
+            Full.MaxLength = 70;
+            if (Regex.IsMatch(Full.Text, "^[a-zA-Z ]*$"))
+            {
                 name_label.Content = Full.Text;
-             else
+            }
+            else
+            {
+                MessageBox.Show("Invalid Input, only letters are acceptable!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                Full.Text = "";
                 name_label.Content = "Firstname Lastname";
-            
+            }
+
         }
 
         private void position_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (position.Text != "")
+            position.MaxLength = 40;
+            if (Regex.IsMatch(position.Text, "^[a-zA-Z ]*$"))
+            {
                 pos_label.Content = position.Text;
+            }
             else
+            {
+                MessageBox.Show("Invalid Input, only letters are acceptable!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                position.Text = "";
                 pos_label.Content = "Position";
+            }
         }
 
 
@@ -80,18 +95,32 @@ namespace itel_Batch_Pass
 
         private void department_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (department.Text != "")
+            department.MaxLength = 35;
+            if (Regex.IsMatch(department.Text, "^[a-zA-Z ]*$"))
+            {
                 department_label.Content = department.Text;
+            }
             else
+            {
+                MessageBox.Show("Invalid Input, only letters are acceptable!","Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                department.Text = "";
                 department_label.Content = "Department";
+            }
         }
 
         private void hrm_id_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (hrm_id.Text != "")
+            hrm_id.MaxLength = 6;
+            if (Regex.IsMatch(hrm_id.Text, "^[0-9]*$"))
+            {
                 hrm_label.Content = hrm_id.Text;
+            }
             else
+            {
+                MessageBox.Show("Invalid Input, only digits are acceptable!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                hrm_id.Text = "";
                 hrm_label.Content = "000000";
+            }         
         }
 
         private void i_date_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -113,7 +142,7 @@ namespace itel_Batch_Pass
             //Create OpenFileDialog
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
             openFileDlg.InitialDirectory = "C:\\";
-            openFileDlg.Filter = "Image Files (*.jpg) | *.jpg | All Files (*.*) | *.*";
+            openFileDlg.Filter = "Image Files (*.png) | *.png | All Files (*.*) | *.*";
             openFileDlg.RestoreDirectory = true;
 
             //Launch dialog by calling ShowDialog method.
@@ -186,10 +215,23 @@ namespace itel_Batch_Pass
 
                 case MessageBoxResult.No:
                     MessageBox.Show("Operation canceled","", MessageBoxButton.OK, MessageBoxImage.Information);
+                    guiReset();
 
                     break;
             }
             
         }
+
+        private void guiReset()
+        {
+            Full.Text = "";
+            hrm_id.Text = "";
+            department.Text = "";
+            i_date.Text = "";
+            file.Text = "";
+            position.Text = "";
+            user_image = null;
+        }
+
     }
 }
