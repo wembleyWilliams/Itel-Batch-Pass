@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using System.Text.RegularExpressions;
+using Microsoft.Win32;
 
 namespace itel_Batch_Pass
 {
@@ -22,6 +23,7 @@ namespace itel_Batch_Pass
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -192,19 +194,29 @@ namespace itel_Batch_Pass
             switch(result)
             {
                 case MessageBoxResult.Yes:
-                    RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(630, 990, 96, 96, PixelFormats.Pbgra32);
-                    renderTargetBitmap.Render(ID_card);
-                    PngBitmapEncoder pngImage = new PngBitmapEncoder();
-                    pngImage.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
+                    SaveFileDialog s = new SaveFileDialog();
+                    s.InitialDirectory = @"c:\temp\";
+                    s.FileName = department.Text + " " + Full.Text;
+                    s.DefaultExt = ".png";
+                    s.Filter = "Image Files (.png)|*.png";
 
-                    if(Full.Text != null)
+                    Nullable <bool> res = s.ShowDialog();
+
+                    if ((Full.Text != null) && (res == true))
                     {
-                        String filename = Full.Text;
-                       
-                        using (FileStream fileStream = File.Create(filename + ".png"))
+                        //Creats image from the preview grid and creates a Bitmap
+                        RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(630, 990, 140, 140, PixelFormats.Pbgra32);
+                        renderTargetBitmap.Render(ID_card);
+
+                        String filename = s.FileName;
+                        PngBitmapEncoder pngImage = new PngBitmapEncoder();                        
+                        pngImage.Frames.Add(BitmapFrame.Create(renderTargetBitmap));                                    
+
+                        using (FileStream fileStream = File.Create(filename))
                         {
                             pngImage.Save(fileStream);
                         }
+                        
                         MessageBox.Show("ID Saved as " + filename, "Saved", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     } else
                     {
