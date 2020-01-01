@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:itel_Batch_Pass"
         mc:Ignorable="d"
-        Title="ItelBPO Batch Print" Height="700" Width="800" ResizeMode="NoResize">
+        
+        Title="ItelBPO Batch Print" Height="700" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
