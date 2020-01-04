@@ -143,8 +143,8 @@ namespace itel_Batch_Pass
 
             //Create OpenFileDialog
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-            openFileDlg.InitialDirectory = "C:\\";
-            openFileDlg.Filter = "Image Files (*.png) | *.png | All Files (*.*) | *.*";
+            openFileDlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            openFileDlg.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
             openFileDlg.RestoreDirectory = true;
 
             //Launch dialog by calling ShowDialog method.
@@ -195,15 +195,17 @@ namespace itel_Batch_Pass
             {
                 case MessageBoxResult.Yes:
                     SaveFileDialog s = new SaveFileDialog();
-                    s.InitialDirectory = @"c:\temp\";
-                    s.FileName = department.Text + " " + Full.Text;
+                    s.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    s.FileName = department.Text + " - " + Full.Text;
                     s.DefaultExt = ".png";
                     s.Filter = "Image Files (.png)|*.png";
 
-                    Nullable <bool> res = s.ShowDialog();
+                    
 
-                    if ((Full.Text != null) && (res == true))
+                    if ((Full.Text != ""))
                     {
+                        s.ShowDialog();
+
                         //Creats image from the preview grid and creates a Bitmap
                         RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(630, 990, 140, 140, PixelFormats.Pbgra32);
                         renderTargetBitmap.Render(ID_card);
@@ -226,7 +228,7 @@ namespace itel_Batch_Pass
                     break;
 
                 case MessageBoxResult.No:
-                    MessageBox.Show("Operation canceled","", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Print Canceled !!","", MessageBoxButton.OK, MessageBoxImage.Information);
                     guiReset();
 
                     break;

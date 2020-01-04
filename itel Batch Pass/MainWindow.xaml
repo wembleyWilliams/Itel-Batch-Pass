@@ -222,13 +222,13 @@
                     </Grid.ColumnDefinitions>
                                       
                     <!--Image Label-->
-                    <Image x:Name="user_image" Grid.Row="6" Grid.Column="6" Grid.RowSpan="12" Grid.ColumnSpan="12"  Source="head_icon.PNG" Stretch="Fill"></Image>
+                    <Image x:Name="user_image" Grid.Row="6" Grid.Column="5" Grid.RowSpan="12" Grid.ColumnSpan="12"  Source="head_icon.PNG" Stretch="Fill"></Image>
                     
                     <!--Text Labels-->
-                    <Label x:Name="name_label" Padding="2" FontSize="26" Grid.Row="18" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="20" Content="Firstname Lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Label x:Name="pos_label" Padding="0,8,0,0" Grid.Row="19" Grid.Column="2" Grid.RowSpan="3"  Grid.ColumnSpan="20" Content="Position Title" FontSize="22" FontWeight="DemiBold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-                    <Label x:Name="department_label" Grid.Row="20" Grid.RowSpan="2" Grid.ColumnSpan="20" Grid.Column="2" Content="Department" FontSize="20" FontWeight="Regular" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>                    
-                    <Label x:Name="type_label" Grid.Row="21" Grid.Column="9" Grid.RowSpan="2" Grid.ColumnSpan="6" FontSize="18" FontWeight="Regular" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Content="Type"/>
+                    <Label x:Name="name_label" Padding="2" FontSize="26" Grid.Row="18" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="20" Content="Firstname Lastname" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="pos_label" Padding="0,8,0,0" Grid.Row="19" Grid.Column="1" Grid.RowSpan="3"  Grid.ColumnSpan="20" Content="Position Title" FontSize="22" FontWeight="DemiBold" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Label x:Name="department_label" Grid.Row="20" Grid.RowSpan="2" Grid.ColumnSpan="20" Grid.Column="1" Content="Department" FontSize="20" FontWeight="Regular" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>                    
+                    <Label x:Name="type_label" Grid.Row="21" Grid.Column="8" Grid.RowSpan="2" Grid.ColumnSpan="6" FontSize="18" FontWeight="Regular" FontFamily="Times New Roman" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Content="Type"/>
                     
                     <!--Number Labels-->
                     <Label x:Name="date_label" Grid.Row="24" Grid.RowSpan="2" Grid.Column="12" Grid.ColumnSpan="5" Content="" FontSize="16" FontWeight="Bold" FontFamily="Times New Roman" HorizontalAlignment="Left" VerticalAlignment="Bottom" Initialized="date_label_Initialized" />
